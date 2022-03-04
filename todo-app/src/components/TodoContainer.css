@@ -1,0 +1,12 @@
+.todo_container{
+    background-color: azure;
+    margin: 100px auto;
+    padding: 30px 30px 0px 30px;
+    height: 400px;
+    width:250px;
+    display: flex;
+    flex-direction: column;
+    align-content:center ;
+  }
+  
+  

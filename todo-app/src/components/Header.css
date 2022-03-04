@@ -1,0 +1,19 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: rgb(53, 52, 52);
+    align-items: center;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+}
+.header .date{
+    display: flex;
+    flex-direction: row;
+    margin-right: 5px;
+    align-items: center;
+}
+
+.header .date h1{
+    margin-right: 5px;
+}
