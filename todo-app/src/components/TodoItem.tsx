@@ -15,19 +15,22 @@ function TodoItem(props: todoItemProps) {
   const checkboxHandler = () => {
     if (!isChecked) {
       setIsChecked(true);
+      localStorage.setItem('isChecked',JSON.stringify(isChecked))
     } else {
       setIsChecked(false);
+      localStorage.setItem('isChecked',JSON.stringify(isChecked))
     }
+    // localStorage.setItem('isChecked',JSON.stringify(isChecked));
   };
 
   return (
     <div className="todo_item">
-      <label
+      <div
         className="todo_detail"
-        style={{ color: isChecked ? "rgb(155, 150, 150)" : "black" }}
+        style={{ color: localStorage.getItem('isChecked') ? "rgb(155, 150, 150)" : "black" }}
       >
         {props.detail}
-      </label>
+      </div>
       <div>
         <input
           type="checkbox"
@@ -36,6 +39,7 @@ function TodoItem(props: todoItemProps) {
           value="{isCompleted}"
         />
       </div>
+      {console.log("TodoItem Component mounted")}
     </div>
   );
 }

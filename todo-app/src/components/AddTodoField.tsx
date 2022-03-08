@@ -3,12 +3,23 @@ import AddTodo from './AddTodo';
 import TodoInput from './TodoInput';
 
 
-function AddTodoField() {
-    const [addButton,setAddButton]=useState(true);
+function AddTodoField(props:any) {
+    const [showButton,setShowButton]=useState(true);
 
-    const AddClickHandler = () =>{
-        setAddButton(false);
-        console.log("addClickhander ran in filed")
+    const showButtonHandler = () =>{
+        setShowButton(false);
+    }
+
+    const hideInputHandler=()=>{
+      setShowButton(true);
+    }
+
+    const enteringDataHandler=(newTodo:any)=>{
+        const todoData = {
+          ...newTodo,
+      
+        }
+        props.onEnteringData(newTodo);
     }
 
 
@@ -16,8 +27,9 @@ function AddTodoField() {
    
 
     <div>
-         {addButton && <AddTodo onAddClick={AddClickHandler}/>}
-         {!addButton && <TodoInput/>}
+         {console.log("AddTododField Component mounted")}
+         {showButton && <AddTodo onClick={showButtonHandler}/>}
+         {!showButton && <TodoInput onESCPress={hideInputHandler} onEnteringData={enteringDataHandler}/>}
     </div>
   )
 }

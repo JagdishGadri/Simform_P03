@@ -6,8 +6,8 @@ import "./TodoList.css";
 
 type todoListProps={
   dataItems :{
-    detail:string;
-    id:number;
+    detail:string ;
+    id:number ;
   }[]
 };
 
@@ -20,6 +20,7 @@ const TodoList = (props:todoListProps) => {
         detail={todo.detail} 
         />
       ))}
+      {console.log("TodoList Component mounted")}
     </div>
   );
 };

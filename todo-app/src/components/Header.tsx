@@ -6,7 +6,6 @@ import "./Header.css";
 
 const Header = () => {
   const todayDate = new Date();
-  console.log(todayDate);
 
   const date =  todayDate.getDate();
   const month = todayDate.toLocaleString("default", { month: "short" });
@@ -25,7 +24,9 @@ const Header = () => {
       <div className="day">
         <h6>{day}</h6>
       </div>
+      {console.log("Header Component mounted")}
     </div>
+    
   );
 };
 

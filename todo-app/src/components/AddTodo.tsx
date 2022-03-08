@@ -10,17 +10,18 @@ import "./AddTodo.css";
 // }
 
 function AddTodo(props:any) {
-  const [state,setstate]=useState(false);
+  // const [state,setstate]=useState(false);
 
-  const inputHandler=()=>{
-       props.onAddClick(state);
-  }
+  // const inputHandler=()=>{
+  //      props.onAddClick(state);
+  // }
 
   return (
     <>
-      <button className="add_todo" onClick={inputHandler}>
+      <button className="add_todo" onClick={()=>props.onClick()}>
         <h2 >+</h2>
       </button>
+      {console.log("AddTodo Component mounted")}
     </>
   );
 }
