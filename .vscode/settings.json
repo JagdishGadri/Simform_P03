@@ -1,0 +1,8 @@
+{
+    "powermode.explosions.customExplosions": [
+        // absolute path to custom ✨ GIF on my computer
+            "/home/jagdishgadri/Desktop/setInterval/dhinglu.gif"
+        ],
+        "powermode.explosions.size": 5,
+        "powermode.combo.counterEnabled": "hide",
+}

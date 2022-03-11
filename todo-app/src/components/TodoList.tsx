@@ -1,26 +1,43 @@
 // Functional Component
 
-import { object } from "prop-types";
+// import { object } from "prop-types";
 import TodoItem from "./TodoItem";
-import "./TodoList.css";
+import styled from "./TodoList.module.css";
 
 type todoListProps={
   dataItems :{
     detail:string ;
-    id:number ;
+    id:number 
   }[]
 };
 
+// {props.dataItems.map((todo) => (
+//   <TodoItem 
+//   id={todo.id} 
+//   detail={todo.detail} 
+//   key={todo.id}
+//   />
+// ))}
+
 const TodoList = (props:todoListProps) => {
+  console.log()
   return (
-    <div className="todo_list">
-      {props.dataItems.map((todo) => (
-        <TodoItem 
-        key={todo.id} 
-        detail={todo.detail} 
-        />
-      ))}
-      {console.log("TodoList Component mounted")}
+    <div className={styled.todo_list}>
+      {props.dataItems.length === 0 ? 
+        <div >
+         <h2 className={styled.empty_detail1}>Looks Empty! </h2>
+         <h2 className={styled.empty_detail2}>Go Ahead And Plan Your Day.</h2>
+        </div> : 
+        <div>
+        {props.dataItems.map((todo) => (
+          <TodoItem 
+          id={todo.id} 
+          detail={todo.detail} 
+          key={todo.id}
+          />
+        ))}
+        </div>
+        }  
     </div>
   );
 };

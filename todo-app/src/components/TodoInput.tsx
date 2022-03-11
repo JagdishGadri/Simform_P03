@@ -1,12 +1,20 @@
-import React,{useCallback,useEffect,useState} from 'react'
-import "./TodoInput.css"
+import { keyboardKey } from '@testing-library/user-event'
+import { type } from '@testing-library/user-event/dist/type'
+import React,{EventHandler, useCallback,useEffect,useState} from 'react'
+import styled from  "./TodoInput.module.css"
 
-const TodoInput=(props:any) =>{
+type todoInputProps={
+  onESCPress:Function,
+  onEnteringData:Function
+
+}
+
+const TodoInput=(props:todoInputProps) =>{
 
   const [enteredDetail,setEnteredDetail] = useState("");
 
 
-  const detailChangeHander= (event:any)=>{
+  const detailChangeHander= (event: { target: { value: React.SetStateAction<string> } })=>{
     setEnteredDetail(event.target.value)
   }
 
@@ -27,40 +35,34 @@ const TodoInput=(props:any) =>{
   })
 
 
+
+  // React.KeyboardEvent<HTMLInputElement>
  
-  const enterHandler =(event:any) => {
+  const enterHandler =(event:React.KeyboardEvent) => {
+
+    let eventTraget=(event.target as HTMLInputElement).value;
+
      if(event.key==='Enter'){
-      if(event.target.value===""){
+      if(eventTraget===""){
         window.alert("Enter valid Input")
       }
       else{
-        console.log(event.target.value)
+        console.log(eventTraget)
         const newTodo ={
           detail: enteredDetail,
-          id: Math.random().toString()
+          id: JSON.parse(localStorage.getItem(('TodoList'))!).length ,
         };
-        localStorage.setItem('time',JSON.stringify(new Date().getDate()))
+        localStorage.setItem('TodoAddedOn',JSON.stringify(new Date().getDate()))
         props.onEnteringData(newTodo);
-        event.target.value=""
+        props.onESCPress()
       }
     }
   };
   
-  
-
-  // useEffect(() => {
-  //   document.addEventListener("keydown", keyPressFunction);
-
-  //   return () => {
-  //     document.removeEventListener("keydown", keyPressFunction);
-  //   };
-  // }, [keyPressFunction]);
-
 
   return (
     <div>
-      <input type="text" className="todo_input" placeholder='Add something' onChange={detailChangeHander} onKeyDown={enterHandler}/>
-      {console.log("TodoInput Component mounted")}
+      <input type="text" className={styled.todo_input} placeholder='Add something' onChange={detailChangeHander} onKeyDown={enterHandler} autoFocus/>
     </div>
   )
 }

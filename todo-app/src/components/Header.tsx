@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import "./Header.css";
+import styled from "./Header.module.css";
 
 const Header = () => {
   const todayDate = new Date();
@@ -13,18 +13,18 @@ const Header = () => {
   const day = todayDate.toLocaleDateString("en-US", { weekday: "long" });
 
   return (
-    <div className="header">
-      <div className="date">
+    <div className={styled.header}>
+      <div className={styled.date}>
         <h1>{date}</h1>
-        <div className="month_year">
+        <div>
           <h6>{month}</h6>
           <h6>{year}</h6>
         </div>
       </div>
-      <div className="day">
+      <div>
         <h6>{day}</h6>
       </div>
-      {console.log("Header Component mounted")}
+      {/* {console.log("Header Component mounted")} */}
     </div>
     
   );

@@ -11,7 +11,6 @@ class App extends React.Component {
     return (
       <>
         <TodoContainer/>
-        {console.log("App Component mounted")}
       </>
     );
   }

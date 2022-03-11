@@ -3,25 +3,20 @@
 import { log } from "console";
 import React, { useState } from "react";
 
-import "./AddTodo.css"; 
+import styled from "./AddTodo.module.css"; 
 
-// type addTodoProps={
-//   choise:Boolean;
-// }
 
-function AddTodo(props:any) {
-  // const [state,setstate]=useState(false);
 
-  // const inputHandler=()=>{
-  //      props.onAddClick(state);
-  // }
+type addTodoProps={
+  onInputShow:Function;
+}
 
+function AddTodo(props:addTodoProps) {
   return (
     <>
-      <button className="add_todo" onClick={()=>props.onClick()}>
+      <button className={styled.add_todo} onClick={()=>props.onInputShow()}>
         <h2 >+</h2>
       </button>
-      {console.log("AddTodo Component mounted")}
     </>
   );
 }
