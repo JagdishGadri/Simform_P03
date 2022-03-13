@@ -1,13 +1,11 @@
 // Functional Component
 
-import React from "react";
-
 import styled from "./Header.module.css";
 
 const Header = () => {
   const todayDate = new Date();
 
-  const date =  todayDate.getDate();
+  const date = todayDate.getDate();
   const month = todayDate.toLocaleString("default", { month: "short" });
   const year = todayDate.getFullYear();
   const day = todayDate.toLocaleDateString("en-US", { weekday: "long" });
@@ -24,9 +22,7 @@ const Header = () => {
       <div>
         <h6>{day}</h6>
       </div>
-      {/* {console.log("Header Component mounted")} */}
     </div>
-    
   );
 };
 

@@ -1,30 +1,13 @@
 // Functional Component
-
-import Header from "./Header";
-import TodoList from "./TodoList";
-import AddTodo from "./AddTodo";
-import styled from "./TodoContainer.module.css";
-import TodoInput from "./TodoInput";
-import AddTodoField from "./AddTodoField";
 import { useEffect, useState } from "react";
-// import AddTodoField from "./AddTodoField";
 
-// let Sec = new Date().getSeconds();
-// if (Sec <= 30) {
-//   const getLocalItems = () => {
-//     let storageList = localStorage.getItem("todo");
+import Header from "./Header/Header";
+import TodoList from "./TaskData/TodoList";
+import AddTodoField from "./Footer/AddTodoField";
 
-//     if (storageList) {
-//       return JSON.parse(localStorage.getItem("todo")!);
-//     } else {
-//       return [];
-//     }
-//   };
-// }
-// else
-// {
-//   localStorage.clear();
-// }
+import styled from "./TodoContainer.module.css";
+
+// Getting Array of Data From Local Storage with Key Of "TodoList"
 
 const getLocalItems = () => {
   let storageList = localStorage.getItem("TodoList");
@@ -36,11 +19,10 @@ const getLocalItems = () => {
     return [];}
 };
 
-// const default_todos: any = [];
 
 const TodoContainer = () => {
   const [todos, setTodos] = useState(getLocalItems);
-  const [newDate, setNewMin] = useState(new Date().getDate());
+  const [newDate, setDate] = useState(new Date().getDate());
 
   const todo_date = parseInt(localStorage.getItem("TodoAddedOn")!);
 
@@ -48,18 +30,12 @@ const TodoContainer = () => {
     localStorage.setItem("TodoList", JSON.stringify(todos));
   }, [todos]);
 
-
-
   useEffect(() => {
     if (newDate !== todo_date) {
       localStorage.clear();
       setTodos(getLocalItems);
     }
   }, [newDate]);
-
-  
-
-  
 
   const enteringDataHandler = (newTodo:ArrayBuffer) => {
     setTodos([...todos, newTodo]);
