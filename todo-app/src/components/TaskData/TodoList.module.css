@@ -1,0 +1,24 @@
+.todo_list{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    overflow-y: auto;
+}
+
+.todo_list::-webkit-scrollbar { 
+    display: none; }
+
+.empty_detail1{
+    color:black;
+    margin: 0 auto;
+    text-align: center;
+    
+}
+
+.empty_detail2{
+    color:rgb(82, 221, 163);
+    margin: 0 auto;
+    text-align: center;
+    
+}

@@ -1,0 +1,12 @@
+.todo_input{
+    border: 2px solid gray;
+    border-radius: 2px;
+    padding:5px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+input[type=text]:focus{
+    outline: 3px solid rgb(82, 221, 163);  
+    border:none;   
+}
